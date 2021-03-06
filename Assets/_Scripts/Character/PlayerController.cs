@@ -1,14 +1,11 @@
 using UnityEngine;
 
-namespace Character
-{
-    public class PlayerController : MonoBehaviour
-    {
+ public class PlayerController : MonoBehaviour
+{ 
+     public Crosshair crosshair;
+     
+     public bool isFiring;
+     public bool isJumping;
+     public bool isRunning;
+ }
 
-        public CrosshairScript CrosshairComponent;
-        
-        public bool IsFiring;
-        public bool IsJumping;
-        public bool IsRunning;
-    }
-}

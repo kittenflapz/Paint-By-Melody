@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static GameManager instance { get; private set; }
 
-    public bool CursorActive { get; private set; } = true;
+    public bool isCursorActive { get; private set; } = true;
+
+    // singletonificiation
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
     }
@@ -26,13 +28,13 @@ public class GameManager : MonoBehaviour
     {
         if (enable)
         {
-            CursorActive = true;
+            isCursorActive = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
         else
         {
-            CursorActive = false;
+            isCursorActive = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -40,13 +42,11 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        AppEvents.MouseCurserEnable += EnableCursor;
+        AppEvents.mouseCursorEnable += EnableCursor;
     }
-
-   
 
     private void OnDisable()
     {
-        AppEvents.MouseCurserEnable -= EnableCursor;
+        AppEvents.mouseCursorEnable -= EnableCursor;
     }
 }

@@ -24,11 +24,6 @@ namespace Character
         private Camera MainCamera;
         private WeaponComponent EquippedWeapon;
     
-        //Animator Hashes
-        private readonly int AimVerticalHash = Animator.StringToHash("AimVertical");
-        private readonly int AimHorizontalHash = Animator.StringToHash("AimHorizontal");
-        private readonly int IsFiringHash = Animator.StringToHash("IsFiring");
-        private readonly int IsReloadingHash = Animator.StringToHash("IsReloading");
 
         private void Awake()
         {
@@ -54,7 +49,7 @@ namespace Character
                     spawnedWeapon.transform.parent = WeaponSocket;
                     EquippedWeapon = spawnedWeapon.GetComponent<WeaponComponent>();
                     GripLocation = EquippedWeapon.HandPosition;
-                    EquippedWeapon.Initialize(this, PlayerController.CrosshairComponent);
+                    EquippedWeapon.Initialize(this, PlayerController.crosshair);
 
                     PlayerEvents.Invoke_OnWeaponEquipped(EquippedWeapon);
                 }
@@ -64,21 +59,21 @@ namespace Character
         public void OnLook(InputValue delta)
         {
             Vector3 independentMousePosition =
-                MainCamera.ScreenToViewportPoint(PlayerController.CrosshairComponent.CurrentMousePosition);
-            PlayerAnimator.SetFloat(AimVerticalHash, independentMousePosition.y);
-            PlayerAnimator.SetFloat(AimHorizontalHash, independentMousePosition.x);
+                MainCamera.ScreenToViewportPoint(PlayerController.crosshair.mousePos);
+            PlayerAnimator.SetFloat("AimVertical", independentMousePosition.y);
+            PlayerAnimator.SetFloat("AimHorizontal", independentMousePosition.x);
         }
         public void StopFiring()
         {
-            PlayerController.IsFiring = false;
-            PlayerAnimator.SetBool(IsFiringHash, PlayerController.IsFiring);
+            PlayerController.isFiring = false;
+            PlayerAnimator.SetBool("IsFiring", PlayerController.isFiring);
             EquippedWeapon.StopFiring();
         }
         public void StartFiring()
         {
             
-            PlayerController.IsFiring = true;
-            PlayerAnimator.SetBool(IsFiringHash, PlayerController.IsFiring);
+            PlayerController.isFiring = true;
+            PlayerAnimator.SetBool("IsFiring", PlayerController.isFiring);
             EquippedWeapon.StartFiring();
         }
         public void OnFire(InputValue button)

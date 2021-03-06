@@ -40,14 +40,14 @@ public class WeaponComponent : MonoBehaviour
 
      protected Camera ViewCamera;
      protected WeaponHolder WeaponHolder;
-     protected CrosshairScript Crosshair;
+     protected Crosshair Crosshair;
      private Vector3 HitLocation;
 
     private void Awake()
     {
         ViewCamera = Camera.main;
     }
-    public void Initialize(WeaponHolder weaponHolder, CrosshairScript crosshair)
+    public void Initialize(WeaponHolder weaponHolder, Crosshair crosshair)
      {
          WeaponHolder = weaponHolder;
          Crosshair = crosshair;
@@ -76,11 +76,11 @@ public class WeaponComponent : MonoBehaviour
     protected virtual void FireWeapon()
     {
 
-        if (!WeaponHolder.Controller.IsRunning)
+        if (!WeaponHolder.Controller.isRunning)
         {
 
-            Ray screenRay = ViewCamera.ScreenPointToRay(new Vector3(Crosshair.CurrentMousePosition.x,
-                Crosshair.CurrentMousePosition.y, 0));
+            Ray screenRay = ViewCamera.ScreenPointToRay(new Vector3(Crosshair.mousePos.x,
+                Crosshair.mousePos.y, 0));
 
             if (!Physics.Raycast(screenRay, out RaycastHit hit, WeaponStats.FireDistance,
                 WeaponStats.WeaponHitLayer)) return;

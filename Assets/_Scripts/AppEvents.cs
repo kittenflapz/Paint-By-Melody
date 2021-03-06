@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AppEvents
 {
- public delegate void MouseCursorEnable(bool enable);
+    public delegate void MouseCursorEnable(bool enable);
 
- public static event MouseCursorEnable MouseCurserEnable;
+    public static event MouseCursorEnable mouseCursorEnable;
 
- public static void Invoke_MouseCursorEnable(bool enabled)
- {
-   MouseCurserEnable?.Invoke(enabled);
- }
+    public static void Invoke_MouseCursorEnable(bool enabled)
+    {
+          mouseCursorEnable?.Invoke(enabled);
+    }
 }

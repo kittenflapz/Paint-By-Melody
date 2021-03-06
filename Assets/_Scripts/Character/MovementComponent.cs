@@ -46,13 +46,13 @@ namespace Character
 
         private void Update()
         {
-            if (PlayerController.IsJumping) return;
+            if (PlayerController.isJumping) return;
             
             if (!(InputVector.magnitude > 0))  MoveDirection = Vector3.zero;
             
             MoveDirection = PlayerTransform.forward * InputVector.y + PlayerTransform.right * InputVector.x;
 
-            float currentSpeed = PlayerController.IsRunning ? RunSpeed : WalkSpeed;
+            float currentSpeed = PlayerController.isRunning ? RunSpeed : WalkSpeed;
 
             Vector3 movementDirection = MoveDirection * (currentSpeed * Time.deltaTime);
 
@@ -71,15 +71,15 @@ namespace Character
 
         public void OnRun(InputValue button)
         {
-            PlayerController.IsRunning = button.isPressed;
+            PlayerController.isRunning = button.isPressed;
             PlayerAnimator.SetBool(IsRunningHash, button.isPressed);
         }
 
         public void OnJump(InputValue button)
         {
-            if (PlayerController.IsJumping) return;
+            if (PlayerController.isJumping) return;
 
-            PlayerController.IsJumping = true;
+            PlayerController.isJumping = true;
             PlayerAnimator.SetBool(IsJumpingHash, true);
             navMeshAgent.enabled = false;
 
@@ -92,11 +92,11 @@ namespace Character
         }
         private void OnCollisionEnter(Collision other)
         {
-            if (!other.gameObject.CompareTag("Ground") && !PlayerController.IsJumping) return;
+            if (!other.gameObject.CompareTag("Ground") && !PlayerController.isJumping) return;
 
 
             navMeshAgent.enabled = true;
-            PlayerController.IsJumping = false;
+            PlayerController.isJumping = false;
             PlayerAnimator.SetBool(IsJumpingHash, false);
         }
     }

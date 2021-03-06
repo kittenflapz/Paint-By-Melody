@@ -1,43 +1,31 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Character
-{
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private GameObject FollowTarget;
-        [SerializeField] private float RotationSpeed = 1f;
-        [SerializeField] private float HorizontalDamping = 1f;
+        [SerializeField] 
+        GameObject followTarget;
+        [SerializeField] 
+        float rotationSpeed = 1f;
+        [SerializeField] 
+        float horizontalDamping = 1f;
 
-
-        private Transform FollowTargetTransform;
-
-        private Vector2 PreviousMouseInput;
+        Transform followTargetTransform;
+        Vector2 prevMouseInput;
 
         // Start is called before the first frame update
         private void Start()
         {
-            FollowTargetTransform = FollowTarget.transform;
-            PreviousMouseInput = Vector2.zero;
+            followTargetTransform = followTarget.transform;
+            prevMouseInput = Vector2.zero;
         }
 
         public void OnLook(InputValue delta)
         {
             Vector2 aimValue = delta.Get<Vector2>();
-
-            FollowTargetTransform.rotation *=
-                Quaternion.AngleAxis(
-                    Mathf.Lerp(PreviousMouseInput.x, aimValue.x, 1f / HorizontalDamping) * RotationSpeed,
-                    transform.up
-                );
-
-            PreviousMouseInput = aimValue;
-
-            transform.rotation = Quaternion.Euler(0 , FollowTargetTransform.transform.rotation.eulerAngles.y, 0);
-            
-            FollowTargetTransform.localEulerAngles = Vector3.zero;
-
-          
+            followTargetTransform.rotation *= Quaternion.AngleAxis(Mathf.Lerp(prevMouseInput.x, aimValue.x, 1f / horizontalDamping) * rotationSpeed, transform.up);
+            prevMouseInput = aimValue;
+            transform.rotation = Quaternion.Euler(0 , followTargetTransform.transform.rotation.eulerAngles.y, 0);
+            followTargetTransform.localEulerAngles = Vector3.zero;
         }
     }
-}

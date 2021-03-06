@@ -6,10 +6,10 @@ public class PlayerEvents
 {
     public delegate void WeaponEquipped(WeaponComponent weapon);
 
-    public static event WeaponEquipped OnWeaponEquipped;
+    public static event WeaponEquipped OnEquipWeapon;
 
     public static void Invoke_OnWeaponEquipped(WeaponComponent weapon)
     {
-        OnWeaponEquipped?.Invoke(weapon);
+        OnEquipWeapon?.Invoke(weapon);
     }
 }
