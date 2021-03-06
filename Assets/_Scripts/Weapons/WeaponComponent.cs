@@ -52,8 +52,6 @@ public class WeaponComponent : MonoBehaviour
          WeaponHolder = weaponHolder;
          Crosshair = crosshair;
      }
-
-
         public virtual void StartFiring()
         {
             Firing = true;
@@ -77,19 +75,24 @@ public class WeaponComponent : MonoBehaviour
     {
 
         if (!WeaponHolder.Controller.isRunning)
-        {
+        { 
+            Ray screenRay = ViewCamera.ScreenPointToRay(new Vector3(Crosshair.mousePos.x, Crosshair.mousePos.y, 0));
 
-            Ray screenRay = ViewCamera.ScreenPointToRay(new Vector3(Crosshair.mousePos.x,
-                Crosshair.mousePos.y, 0));
+            if (!Physics.Raycast(screenRay, out RaycastHit hit, WeaponStats.FireDistance, WeaponStats.WeaponHitLayer))
+            { 
+                return; 
+            }
 
-            if (!Physics.Raycast(screenRay, out RaycastHit hit, WeaponStats.FireDistance,
-                WeaponStats.WeaponHitLayer)) return;
+            if (hit.collider.gameObject.CompareTag("Key"))
+            {
+                Key keyHit = hit.collider.gameObject.GetComponent<Key>();
+                keyHit.PlayNote();
+            }
 
             HitLocation = hit.point;
             Vector3 hitDirection = hit.point - ViewCamera.transform.position;
             Debug.DrawRay(ViewCamera.transform.position, hitDirection.normalized * WeaponStats.FireDistance, Color.red);
         }
-
         weaponFireSound.Play();
     }
 

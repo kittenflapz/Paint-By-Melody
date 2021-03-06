@@ -5,10 +5,7 @@ using UnityEngine;
 
 // Suffix S refers to 'sharp' since we can't use #
 public enum Note
-{
-    A,
-    AS,
-    B,
+{ 
     C,
     CS,
     D,
@@ -17,7 +14,10 @@ public enum Note
     F, 
     FS, 
     G,
-    GS
+    GS,
+    A,
+    AS,
+    B
 }
 
 public class Key : MonoBehaviour
@@ -29,8 +29,14 @@ public class Key : MonoBehaviour
     AudioSource audioSource;
 
     [SerializeField]
-    AudioClip[] noteClips;
+    KeyManager keyManager;
 
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        keyManager = FindObjectOfType<KeyManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +51,15 @@ public class Key : MonoBehaviour
 
     void AssignNote()
     {
-        audioSource.clip = noteClips[(int)note];
+        audioSource.clip = keyManager.noteClips[(int)note];
+    }
+
+    public void PlayNote()
+    {
+        audioSource.Play();
+        keyManager.notesJustPlayed.Add(note);
+        // add me to the array of 'keys just played' in the key manager
+        // change my color
+        // start my timer
     }
 }
