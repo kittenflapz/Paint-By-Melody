@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Inputs/GameInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/_Scripts/Input/GameInputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -62,6 +62,14 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                     ""name"": ""Reload"",
                     ""type"": ""Button"",
                     ""id"": ""06612edb-307b-475f-bb95-4c4dd7366cb7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Hint"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab49677e-5644-420d-a205-92e372340f25"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": ""Press""
@@ -177,6 +185,17 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2199bcf0-fb7c-4672-9a4e-207eb2a8bc87"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +227,7 @@ public class @GameInputActions : IInputActionCollection, IDisposable
         m_ThirdPerson_Run = m_ThirdPerson.FindAction("Run", throwIfNotFound: true);
         m_ThirdPerson_Look = m_ThirdPerson.FindAction("Look", throwIfNotFound: true);
         m_ThirdPerson_Reload = m_ThirdPerson.FindAction("Reload", throwIfNotFound: true);
+        m_ThirdPerson_Hint = m_ThirdPerson.FindAction("Hint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -263,6 +283,7 @@ public class @GameInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_ThirdPerson_Run;
     private readonly InputAction m_ThirdPerson_Look;
     private readonly InputAction m_ThirdPerson_Reload;
+    private readonly InputAction m_ThirdPerson_Hint;
     public struct ThirdPersonActions
     {
         private @GameInputActions m_Wrapper;
@@ -273,6 +294,7 @@ public class @GameInputActions : IInputActionCollection, IDisposable
         public InputAction @Run => m_Wrapper.m_ThirdPerson_Run;
         public InputAction @Look => m_Wrapper.m_ThirdPerson_Look;
         public InputAction @Reload => m_Wrapper.m_ThirdPerson_Reload;
+        public InputAction @Hint => m_Wrapper.m_ThirdPerson_Hint;
         public InputActionMap Get() { return m_Wrapper.m_ThirdPerson; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -300,6 +322,9 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                 @Reload.started -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnReload;
+                @Hint.started -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnHint;
+                @Hint.performed -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnHint;
+                @Hint.canceled -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnHint;
             }
             m_Wrapper.m_ThirdPersonActionsCallbackInterface = instance;
             if (instance != null)
@@ -322,6 +347,9 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @Hint.started += instance.OnHint;
+                @Hint.performed += instance.OnHint;
+                @Hint.canceled += instance.OnHint;
             }
         }
     }
@@ -343,5 +371,6 @@ public class @GameInputActions : IInputActionCollection, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnHint(InputAction.CallbackContext context);
     }
 }

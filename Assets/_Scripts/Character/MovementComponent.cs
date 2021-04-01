@@ -20,13 +20,15 @@ using UnityEngine.AI;
         Rigidbody rigidBody;
         Transform playerTransform;
 
-  
-        private void Awake()
+
+
+    private void Awake()
         {
             playerController = GetComponent<PlayerController>();
             animator = GetComponent<Animator>();
             rigidBody = GetComponent<Rigidbody>();
              playerTransform = base.transform;
+
         }
 
         private void Update()
@@ -69,7 +71,12 @@ using UnityEngine.AI;
         {
         rigidBody.AddForce((base.transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
         }
-        private void OnCollisionEnter(Collision other)
+
+
+
+
+
+    private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag("Ground") && !playerController.isJumping) return;
 

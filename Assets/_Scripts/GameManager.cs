@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
 
     public bool isCursorActive { get; private set; } = true;
+
 
     // singletonificiation
 
@@ -43,10 +45,15 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         AppEvents.mouseCursorEnable += EnableCursor;
+
     }
 
     private void OnDisable()
     {
         AppEvents.mouseCursorEnable -= EnableCursor;
     }
+
+
+
+
 }
