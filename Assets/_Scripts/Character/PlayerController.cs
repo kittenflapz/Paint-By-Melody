@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
      public bool isFiring;
      public bool isJumping;
      public bool isRunning;
+
+
     [SerializeField]
     private GameObject hintCanvas;
 

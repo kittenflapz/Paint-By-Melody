@@ -4015,6 +4015,8 @@ GameObject:
   - component: {fileID: 1796028221}
   - component: {fileID: 1796028220}
   - component: {fileID: 1796028219}
+  - component: {fileID: 1796028223}
+  - component: {fileID: 1796028224}
   m_Layer: 0
   m_Name: ColourableFloorSection
   m_TagString: Ground
@@ -4099,6 +4101,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1796028223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796028218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.46980572, z: 10}
+  m_Center: {x: 0, y: 0.11071396, z: 0}
+--- !u!114 &1796028224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796028218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  melody: {fileID: 11400000, guid: 152c06ad3f2df7c428993a04969614a4, type: 2}
 --- !u!850595691 &1804586030
 LightingSettings:
   m_ObjectHideFlags: 0
