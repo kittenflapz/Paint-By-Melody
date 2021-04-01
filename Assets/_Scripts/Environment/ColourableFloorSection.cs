@@ -26,13 +26,19 @@ public class ColourableFloorSection : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("filling in");
-            FillIn();
+            other.gameObject.GetComponent<PlayerController>().PlayMelody(melody.notes);
+            //print("filling in");
+           // FillIn();
         }
     }
 
     public void FillIn()
     {
         GetComponent<MeshRenderer>().material.SetColor("_Color", melody.successfulFloorColor);
+    }
+
+    public void PlayMelody()
+    {
+
     }
 }

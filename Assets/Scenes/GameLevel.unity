@@ -3904,6 +3904,107 @@ MonoBehaviour:
   note: 5
   audioSource: {fileID: 0}
   keyManager: {fileID: 0}
+--- !u!1 &1667400716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3526702093224946357, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+  m_PrefabInstance: {fileID: 4317497836923235087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1667400725
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667400716}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1764527045
 GameObject:
   m_ObjectHideFlags: 0
@@ -6452,6 +6553,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
       propertyPath: CrosshairComponent
       value: 
       objectReference: {fileID: 4317497837006420028}
@@ -6463,6 +6568,54 @@ PrefabInstance:
       propertyPath: hintCanvas
       value: 
       objectReference: {fileID: 821258620}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d0a1617e363b0848bc4087440a649ff, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ef57a5cdd6102347a08a48d38e72cf7, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: c7475f17e76c47648854fc74bdbc02e9, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dfe3c069c9a7c44aaccd45134f7e4a4, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: b07fb9f19ef692544a063e5a8f4c8c8a, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 374a37b3bf1ebbe45918b3ba2c2d8d38, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7954f6873913a6f41b4eac6e56adf441, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 55ffee84e7f635345bbfe784c709d466, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed5874906b2fc9241ad57d1ede45ed33, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 72ebd1bbbcd3e5349b540327b307f042, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 998035d45cb875c4aa4d7df2d6481240, type: 3}
+    - target: {fileID: 3988723038579308963, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
+      propertyPath: noteClips.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1933ff232444f9648bec8fcce6a33322, type: 3}
     - target: {fileID: 8130916953716397461, guid: d1c1fcdaf9bd7c145a33af425d3befa5, type: 3}
       propertyPath: walkSpeed
       value: 2

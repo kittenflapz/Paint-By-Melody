@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3437c3c8789f7ef4abb952a54ae3a104, type: 3}
   m_Name: DoReMi
   m_EditorClassIdentifier: 
-  notes: 000000000200000004000000
+  notes: 0000000002000000040000000500000007000000090000000b000000
   successfulFloorColor: {r: 0.12936638, g: 0.0037735105, b: 1, a: 0}
