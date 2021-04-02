@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ColourableFloorSection : MonoBehaviour
 {
 
     private bool filledIn;
-
-    
     public MelodyScriptableObject melody;
+
+    [SerializeField]
+    TextMeshProUGUI notesLastHeard;
 
     public bool GetFilledIn()
     {
@@ -23,7 +25,20 @@ public class ColourableFloorSection : MonoBehaviour
             // (so I don't have to have an audio source on each floor section)
             other.gameObject.GetComponent<PlayerController>().PlayMelody(melody.notes);
 
+            SetNotesLastHeardText();
+
         }
+    }
+
+    public void SetNotesLastHeardText()
+    {
+        string notesLastHeardString = "";
+        foreach (Note note in melody.notes)
+        {
+            notesLastHeardString = notesLastHeardString.Insert(notesLastHeardString.Length, note.ToString());
+        }
+
+        notesLastHeard.SetText(notesLastHeardString);
     }
 
     public void FillIn()

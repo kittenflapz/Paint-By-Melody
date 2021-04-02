@@ -7,22 +7,7 @@ public class KeyManager : MonoBehaviour
     public AudioClip[] noteClips;
 
     public List<Note> notesJustPlayed;
-    public List<Note> theCorrectTune = new List<Note>{ Note.C, Note.CS, Note.D };
     public List<ColourableFloorSection> floorSections;
-
-
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-        if (CheckMatch(notesJustPlayed, theCorrectTune))
-        {
-            print("win");
-        }
-    }
 
     public void WinCheck()
     {
