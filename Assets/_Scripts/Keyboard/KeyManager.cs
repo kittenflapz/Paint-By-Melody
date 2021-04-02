@@ -28,7 +28,10 @@ public class KeyManager : MonoBehaviour
     {
         foreach (ColourableFloorSection floorSection in floorSections)
         {
-          //  if (CheckMatch(notesJustPlayed, floorSection.melody.notes)
+           if (CheckMatch(notesJustPlayed, floorSection.melody.notes))
+            {
+                floorSection.FillIn();
+            }
         }
     }
 

@@ -10,35 +10,25 @@ public class ColourableFloorSection : MonoBehaviour
     
     public MelodyScriptableObject melody;
 
-    // Start is called before the first frame update
-    void Start()
+    public bool GetFilledIn()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        return filledIn;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            // The floor section keeps the notes in its MelodyScriptableObject, but the player does the playing of the notes!
+            // (so I don't have to have an audio source on each floor section)
             other.gameObject.GetComponent<PlayerController>().PlayMelody(melody.notes);
-            //print("filling in");
-           // FillIn();
+
         }
     }
 
     public void FillIn()
     {
         GetComponent<MeshRenderer>().material.SetColor("_Color", melody.successfulFloorColor);
-    }
-
-    public void PlayMelody()
-    {
-
+        filledIn = true;
     }
 }

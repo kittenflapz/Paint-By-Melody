@@ -58,5 +58,6 @@ public class Key : MonoBehaviour
     {
         audioSource.Play();
         keyManager.notesJustPlayed.Add(note);
+        keyManager.WinCheck();
     }
 }

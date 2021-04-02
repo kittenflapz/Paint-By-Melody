@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 { 
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void PlayMelody(Note[] melody)
+    public void PlayMelody(List<Note> melody)
     {
         StartCoroutine(PlayMelodyWithGivenDelay(0.3f, melody));
     }
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    IEnumerator PlayMelodyWithGivenDelay(float seconds, Note[] melody)
+    IEnumerator PlayMelodyWithGivenDelay(float seconds, List<Note> melody)
     {
         foreach (Note note in melody)
         {
