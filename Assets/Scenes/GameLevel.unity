@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melody: {fileID: 11400000, guid: ad31700a70a34ae4e8dc5c9586d89551, type: 2}
-  notesLastHeard: {fileID: 0}
+  notesLastHeard: {fileID: 905535019}
 --- !u!65 &2912322
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5802,7 +5802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melody: {fileID: 11400000, guid: e1b62a7f115feca4685a170520d67be8, type: 2}
-  notesLastHeard: {fileID: 0}
+  notesLastHeard: {fileID: 905535019}
 --- !u!65 &1316460474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5957,7 +5957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melody: {fileID: 11400000, guid: 664598f2c04084b4ba6f60bdeed64f1a, type: 2}
-  notesLastHeard: {fileID: 0}
+  notesLastHeard: {fileID: 905535019}
 --- !u!65 &1368524462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6082,7 +6082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melody: {fileID: 11400000, guid: abecc37c84cf7c040822a8aa7c78452c, type: 2}
-  notesLastHeard: {fileID: 0}
+  notesLastHeard: {fileID: 905535019}
 --- !u!65 &1383136588
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6509,7 +6509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melody: {fileID: 11400000, guid: 692d7217bf736044a8d8081a9b489ae5, type: 2}
-  notesLastHeard: {fileID: 0}
+  notesLastHeard: {fileID: 905535019}
 --- !u!65 &1520378995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6775,7 +6775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melody: {fileID: 11400000, guid: dbd1a9f1b3d1b9b4699474821aa56814, type: 2}
-  notesLastHeard: {fileID: 0}
+  notesLastHeard: {fileID: 905535019}
 --- !u!65 &1595317913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7437,7 +7437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melody: {fileID: 11400000, guid: 152c06ad3f2df7c428993a04969614a4, type: 2}
-  notesLastHeard: {fileID: 0}
+  notesLastHeard: {fileID: 905535019}
 --- !u!850595691 &1804586030
 LightingSettings:
   m_ObjectHideFlags: 0
