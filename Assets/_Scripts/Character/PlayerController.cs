@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
      public bool isJumping;
      public bool isRunning;
 
+    [SerializeField]
+    Transform startPosition;
+
 
     public AudioClip[] noteClips;
     AudioSource audioSource;
@@ -47,7 +50,10 @@ public class PlayerController : MonoBehaviour
         audioSource.Play();
     }
 
-
+    public void RespawnAtHome()
+    {
+        transform.position = startPosition.position;
+    }
     IEnumerator PlayMelodyWithGivenDelay(float seconds, List<Note> melody)
     {
         foreach (Note note in melody)
