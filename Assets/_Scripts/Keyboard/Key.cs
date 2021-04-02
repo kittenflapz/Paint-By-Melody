@@ -58,8 +58,5 @@ public class Key : MonoBehaviour
     {
         audioSource.Play();
         keyManager.notesJustPlayed.Add(note);
-        // add me to the array of 'keys just played' in the key manager
-        // change my color
-        // start my timer
     }
 }

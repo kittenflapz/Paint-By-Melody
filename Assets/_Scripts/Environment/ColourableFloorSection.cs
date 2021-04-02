@@ -7,8 +7,8 @@ public class ColourableFloorSection : MonoBehaviour
 
     private bool filledIn;
 
-    [SerializeField]
-    MelodyScriptableObject melody;
+    
+    public MelodyScriptableObject melody;
 
     // Start is called before the first frame update
     void Start()

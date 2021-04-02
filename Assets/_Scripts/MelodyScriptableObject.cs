@@ -7,6 +7,7 @@
 [CreateAssetMenu(fileName = "NewMelody", menuName = "ScriptableObjects/MelodyScriptableObject", order = 1)]
 public class MelodyScriptableObject : ScriptableObject
 {
+    // list
     public Note[] notes;
     public Color successfulFloorColor;
 }

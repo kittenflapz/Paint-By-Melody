@@ -43,9 +43,13 @@ public class WeaponComponent : MonoBehaviour
      protected Crosshair Crosshair;
      private Vector3 HitLocation;
 
+    [SerializeField]
+    KeyManager keyManager;
+
     private void Awake()
     {
         ViewCamera = Camera.main;
+        keyManager = FindObjectOfType<KeyManager>();
     }
     public void Initialize(WeaponHolder weaponHolder, Crosshair crosshair)
      {
@@ -87,6 +91,11 @@ public class WeaponComponent : MonoBehaviour
             {
                 Key keyHit = hit.collider.gameObject.GetComponent<Key>();
                 keyHit.PlayNote();
+            }
+
+            if (hit.collider.gameObject.CompareTag("StartOverKey"))
+            {
+                keyManager.ClearNotesJustPlayedList();
             }
 
             HitLocation = hit.point;
