@@ -5,6 +5,8 @@ using TMPro;
 
 public class ColourableFloorSection : MonoBehaviour
 {
+    [SerializeField]
+    private int platformIdentifier;
 
     private bool filledIn;
     public MelodyScriptableObject melody;

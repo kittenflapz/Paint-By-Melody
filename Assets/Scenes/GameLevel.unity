@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformIdentifier: 1
   melody: {fileID: 11400000, guid: ad31700a70a34ae4e8dc5c9586d89551, type: 2}
   notesLastHeard: {fileID: 905535019}
 --- !u!65 &2912322
@@ -5829,6 +5830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformIdentifier: 5
   melody: {fileID: 11400000, guid: e1b62a7f115feca4685a170520d67be8, type: 2}
   notesLastHeard: {fileID: 905535019}
 --- !u!65 &1316460474
@@ -5984,6 +5986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformIdentifier: 4
   melody: {fileID: 11400000, guid: 664598f2c04084b4ba6f60bdeed64f1a, type: 2}
   notesLastHeard: {fileID: 905535019}
 --- !u!65 &1368524462
@@ -6109,6 +6112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformIdentifier: 3
   melody: {fileID: 11400000, guid: abecc37c84cf7c040822a8aa7c78452c, type: 2}
   notesLastHeard: {fileID: 905535019}
 --- !u!65 &1383136588
@@ -6536,6 +6540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformIdentifier: 6
   melody: {fileID: 11400000, guid: 692d7217bf736044a8d8081a9b489ae5, type: 2}
   notesLastHeard: {fileID: 905535019}
 --- !u!65 &1520378995
@@ -6802,6 +6807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformIdentifier: 2
   melody: {fileID: 11400000, guid: dbd1a9f1b3d1b9b4699474821aa56814, type: 2}
   notesLastHeard: {fileID: 905535019}
 --- !u!65 &1595317913
@@ -7466,6 +7472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85943927feed784ab8b61db30c1e3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformIdentifier: 0
   melody: {fileID: 11400000, guid: 152c06ad3f2df7c428993a04969614a4, type: 2}
   notesLastHeard: {fileID: 905535019}
 --- !u!850595691 &1804586030
