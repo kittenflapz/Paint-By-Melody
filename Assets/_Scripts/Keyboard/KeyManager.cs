@@ -11,6 +11,18 @@ public class KeyManager : MonoBehaviour
 
     public MovingPlatform movingPlatform;
 
+    SaveManager saveManager;
+
+    private void Awake()
+    {
+        saveManager = FindObjectOfType<SaveManager>();
+        
+    }
+
+    private void Start()
+    {
+        saveManager.LoadPlatformsColoured(floorSections);
+    }
     public void WinCheck()
     {
 
@@ -50,5 +62,10 @@ public class KeyManager : MonoBehaviour
                 return false;
         }
         return true;
+    }
+
+    private void OnDestroy()
+    {
+        saveManager.SavePlatformsColoured(floorSections);
     }
 }

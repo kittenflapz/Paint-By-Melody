@@ -42,9 +42,8 @@ public class StartCanvasController : MonoBehaviour
 
     public void SaveName()
     {
-        if (nameInput.text != "")
-        {
-            saveManager.SaveName(nameInput.text);
-        }
+       
+       saveManager.SaveName(nameInput.text);
+      
     }
 }

@@ -6,13 +6,16 @@ using TMPro;
 public class ColourableFloorSection : MonoBehaviour
 {
     [SerializeField]
-    private int platformIdentifier;
+    public int platformIdentifier;
 
     private bool filledIn;
     public MelodyScriptableObject melody;
 
     [SerializeField]
     TextMeshProUGUI notesLastHeard;
+
+
+
 
     public bool GetFilledIn()
     {
@@ -63,4 +66,5 @@ public class ColourableFloorSection : MonoBehaviour
         }
         GetComponent<MeshRenderer>().material.color = endValue;
     }
+
 }
