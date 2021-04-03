@@ -32,7 +32,7 @@ public class SaveManager : MonoBehaviour
         {
             return PlayerPrefs.GetInt("ammo");
         }
-        else return -1;
+        else return 10;
     }
 
 

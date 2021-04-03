@@ -46,10 +46,14 @@ public class WeaponComponent : MonoBehaviour
     [SerializeField]
     KeyManager keyManager;
 
+    [SerializeField]
+    PlayerController player;
+
     private void Awake()
     {
         ViewCamera = Camera.main;
         keyManager = FindObjectOfType<KeyManager>();
+        player = FindObjectOfType<PlayerController>();
     }
     public void Initialize(WeaponHolder weaponHolder, Crosshair crosshair)
      {
@@ -65,7 +69,10 @@ public class WeaponComponent : MonoBehaviour
             }
             else
             {
+            if (player.ammo > 0)
+            { 
                 FireWeapon();
+            }
             }
         }
         
@@ -101,7 +108,9 @@ public class WeaponComponent : MonoBehaviour
             HitLocation = hit.point;
             Vector3 hitDirection = hit.point - ViewCamera.transform.position;
             Debug.DrawRay(ViewCamera.transform.position, hitDirection.normalized * WeaponStats.FireDistance, Color.red);
+           
         }
+        player.ReduceAmmo();
         weaponFireSound.Play();
     }
 

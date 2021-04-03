@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 { 
@@ -20,11 +21,43 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject hintCanvas;
 
+    SaveManager saveManager;
+
+
+    public TextMeshProUGUI ammoLabel;
+
+    public int ammo;
 
     private void Awake()
     {
         hintCanvas.SetActive(false);
         audioSource = GetComponent<AudioSource>();
+        saveManager = FindObjectOfType<SaveManager>();
+        
+    }
+    private void Start()
+    {
+        ammo = saveManager.LoadAmmo();
+        ammoLabel.SetText(ammo.ToString());
+    }
+
+    public void ReduceAmmo()
+    {
+        if (ammo > 0)
+        {
+            ammo--;
+
+            ammoLabel.SetText(ammo.ToString());
+        }
+    }
+
+    public void OnJump()
+    {
+        if (ammo < 99)
+        {
+            ammo++;
+            ammoLabel.SetText(ammo.ToString());
+        }
     }
 
     public void OnHint()
@@ -61,6 +94,11 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(seconds);
             PlayNote(note);
         }
+    }
+
+    private void OnDestroy()
+    {
+        saveManager.SaveAmmo(ammo);
     }
 }
 
