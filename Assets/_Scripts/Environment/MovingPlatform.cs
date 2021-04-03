@@ -15,7 +15,25 @@ public class MovingPlatform : MonoBehaviour
 
     int counter = 0;
 
+    [SerializeField]
+    private bool shouldMove;
+
     void Update()
+    {
+        if (shouldMove)
+        {
+            FollowPath();
+        }
+    }
+
+
+    public void StartMoving()
+    {
+        GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+        shouldMove = true;
+    }
+
+    private void FollowPath()
     {
         if (Vector3.Distance(waypoints[counter].transform.position, transform.position) < waypointRadius)
         {
@@ -27,7 +45,6 @@ public class MovingPlatform : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, waypoints[counter].transform.position, Time.deltaTime * speed);
     }
-
 
     private void OnCollisionEnter(Collision collision)
     {

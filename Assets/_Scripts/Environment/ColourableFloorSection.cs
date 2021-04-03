@@ -43,7 +43,22 @@ public class ColourableFloorSection : MonoBehaviour
 
     public void FillIn()
     {
-        GetComponent<MeshRenderer>().material.SetColor("_Color", melody.successfulFloorColor);
         filledIn = true;
+        StartCoroutine(LerpToColor(melody.successfulFloorColor, 3));
+    }
+
+    // adapted from https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/#lerp_material_colour
+    IEnumerator LerpToColor(Color endValue, float duration)
+    {
+        float time = 0;
+        Color startValue = GetComponent<MeshRenderer>().material.color;
+
+        while (time < duration)
+        {
+            GetComponent<MeshRenderer>().material.color = Color.Lerp(startValue, endValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<MeshRenderer>().material.color = endValue;
     }
 }

@@ -9,17 +9,31 @@ public class KeyManager : MonoBehaviour
     public List<Note> notesJustPlayed;
     public List<ColourableFloorSection> floorSections;
 
+    public MovingPlatform movingPlatform;
+
     public void WinCheck()
     {
+
+        bool hasWon = true;
         foreach (ColourableFloorSection floorSection in floorSections)
         {
            if (CheckMatch(notesJustPlayed, floorSection.melody.notes))
             {
                 floorSection.FillIn();
             }
+            if (!floorSection.GetFilledIn())
+            {
+                hasWon = false;
+            }
+        }
+
+        if (hasWon)
+        {
+            movingPlatform.StartMoving();
         }
     }
 
+  
     public void ClearNotesJustPlayedList()
     {
         notesJustPlayed.Clear();
