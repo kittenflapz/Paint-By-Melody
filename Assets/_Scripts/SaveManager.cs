@@ -71,8 +71,7 @@ public class SaveManager : MonoBehaviour
                 platformsColoured += "n";
             }
         }
-        print("saving platforms coloured as ");
-        print(platformsColoured);
+  
         PlayerPrefs.SetString("platforms", platformsColoured);
     }
 }

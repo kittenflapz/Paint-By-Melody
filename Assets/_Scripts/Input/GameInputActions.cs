@@ -73,6 +73,14 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf80d6f4-7983-480f-950e-87a410a518d1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -196,6 +204,17 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Hint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2dad359a-4311-4ecf-95f9-90fb863fc0e5"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +247,7 @@ public class @GameInputActions : IInputActionCollection, IDisposable
         m_ThirdPerson_Look = m_ThirdPerson.FindAction("Look", throwIfNotFound: true);
         m_ThirdPerson_Reload = m_ThirdPerson.FindAction("Reload", throwIfNotFound: true);
         m_ThirdPerson_Hint = m_ThirdPerson.FindAction("Hint", throwIfNotFound: true);
+        m_ThirdPerson_Quit = m_ThirdPerson.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +304,7 @@ public class @GameInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_ThirdPerson_Look;
     private readonly InputAction m_ThirdPerson_Reload;
     private readonly InputAction m_ThirdPerson_Hint;
+    private readonly InputAction m_ThirdPerson_Quit;
     public struct ThirdPersonActions
     {
         private @GameInputActions m_Wrapper;
@@ -295,6 +316,7 @@ public class @GameInputActions : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_ThirdPerson_Look;
         public InputAction @Reload => m_Wrapper.m_ThirdPerson_Reload;
         public InputAction @Hint => m_Wrapper.m_ThirdPerson_Hint;
+        public InputAction @Quit => m_Wrapper.m_ThirdPerson_Quit;
         public InputActionMap Get() { return m_Wrapper.m_ThirdPerson; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -325,6 +347,9 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                 @Hint.started -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnHint;
                 @Hint.performed -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnHint;
                 @Hint.canceled -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnHint;
+                @Quit.started -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_ThirdPersonActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_ThirdPersonActionsCallbackInterface = instance;
             if (instance != null)
@@ -350,6 +375,9 @@ public class @GameInputActions : IInputActionCollection, IDisposable
                 @Hint.started += instance.OnHint;
                 @Hint.performed += instance.OnHint;
                 @Hint.canceled += instance.OnHint;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -372,5 +400,6 @@ public class @GameInputActions : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnHint(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

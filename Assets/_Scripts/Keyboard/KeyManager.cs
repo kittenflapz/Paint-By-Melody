@@ -22,6 +22,8 @@ public class KeyManager : MonoBehaviour
     private void Start()
     {
         saveManager.LoadPlatformsColoured(floorSections);
+        // in case loaded game has all sections
+        WinCheck();
     }
     public void WinCheck()
     {

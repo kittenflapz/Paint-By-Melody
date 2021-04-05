@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     SaveManager saveManager;
 
-
+    KeyManager keyManager;
     public TextMeshProUGUI ammoLabel;
 
     public int ammo;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         hintCanvas.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         saveManager = FindObjectOfType<SaveManager>();
-        
+        keyManager = FindObjectOfType<KeyManager>();
     }
     private void Start()
     {
@@ -70,6 +70,21 @@ public class PlayerController : MonoBehaviour
         {
             hintCanvas.SetActive(true);
         }
+    }
+
+    public void OnQuit()
+    {
+
+        saveManager.SavePlatformsColoured(keyManager.floorSections);
+        saveManager.SaveAmmo(ammo);
+
+#if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 
     public void PlayMelody(List<Note> melody)
